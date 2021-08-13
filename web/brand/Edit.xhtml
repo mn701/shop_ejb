@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBrandTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBrandLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{brandController.selected.id}" title="#{bundle.EditBrandTitle_id}" required="true" requiredMessage="#{bundle.EditBrandRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditBrandLabel_brand}" for="brand" />
+                    <h:inputText id="brand" value="#{brandController.selected.brand}" title="#{bundle.EditBrandTitle_brand}" />
+                    <h:outputLabel value="#{bundle.EditBrandLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{brandController.selected.country}" title="#{bundle.EditBrandTitle_country}" />
+                    <h:outputLabel value="#{bundle.EditBrandLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{brandController.selected.description}" title="#{bundle.EditBrandTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditBrandLabel_officialSite}" for="officialSite" />
+                    <h:inputText id="officialSite" value="#{brandController.selected.officialSite}" title="#{bundle.EditBrandTitle_officialSite}" />
+                    <h:outputLabel value="#{bundle.EditBrandLabel_buymaLink}" for="buymaLink" />
+                    <h:inputText id="buymaLink" value="#{brandController.selected.buymaLink}" title="#{bundle.EditBrandTitle_buymaLink}" />
+                    <h:outputLabel value="#{bundle.EditBrandLabel_introduction}" for="introduction" />
+                    <h:inputTextarea rows="4" cols="30" id="introduction" value="#{brandController.selected.introduction}" title="#{bundle.EditBrandTitle_introduction}" />
+                </h:panelGrid>
+                <h:commandLink action="#{brandController.update}" value="#{bundle.EditBrandSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBrandViewLink}"/>
+                <br />
+                <h:commandLink action="#{brandController.prepareList}" value="#{bundle.EditBrandShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBrandIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

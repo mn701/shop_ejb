@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBrandTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBrandLabel_id}"/>
+                    <h:outputText value="#{brandController.selected.id}" title="#{bundle.ViewBrandTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_brand}"/>
+                    <h:outputText value="#{brandController.selected.brand}" title="#{bundle.ViewBrandTitle_brand}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_country}"/>
+                    <h:outputText value="#{brandController.selected.country}" title="#{bundle.ViewBrandTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_description}"/>
+                    <h:outputText value="#{brandController.selected.description}" title="#{bundle.ViewBrandTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_officialSite}"/>
+                    <h:outputText value="#{brandController.selected.officialSite}" title="#{bundle.ViewBrandTitle_officialSite}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_buymaLink}"/>
+                    <h:outputText value="#{brandController.selected.buymaLink}" title="#{bundle.ViewBrandTitle_buymaLink}"/>
+                    <h:outputText value="#{bundle.ViewBrandLabel_introduction}"/>
+                    <h:outputText value="#{brandController.selected.introduction}" title="#{bundle.ViewBrandTitle_introduction}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{brandController.destroyAndView}" value="#{bundle.ViewBrandDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBrandEditLink}"/>
+                <br />
+                <h:commandLink action="#{brandController.prepareCreate}" value="#{bundle.ViewBrandCreateLink}" />
+                <br />
+                <h:commandLink action="#{brandController.prepareList}" value="#{bundle.ViewBrandShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBrandIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
