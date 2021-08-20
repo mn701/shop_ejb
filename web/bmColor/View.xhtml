@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewBmColorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewBmColorLabel_id}"/>
+                    <h:outputText value="#{bmColorController.selected.id}" title="#{bundle.ViewBmColorTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewBmColorLabel_colorFamilyName}"/>
+                    <h:outputText value="#{bmColorController.selected.colorFamilyName}" title="#{bundle.ViewBmColorTitle_colorFamilyName}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{bmColorController.destroyAndView}" value="#{bundle.ViewBmColorDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewBmColorEditLink}"/>
+                <br />
+                <h:commandLink action="#{bmColorController.prepareCreate}" value="#{bundle.ViewBmColorCreateLink}" />
+                <br />
+                <h:commandLink action="#{bmColorController.prepareList}" value="#{bundle.ViewBmColorShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewBmColorIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

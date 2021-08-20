@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewItemTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewItemLabel_itemId}"/>
+                    <h:outputText value="#{itemController.selected.itemId}" title="#{bundle.ViewItemTitle_itemId}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_brand}"/>
+                    <h:outputText value="#{itemController.selected.brand}" title="#{bundle.ViewItemTitle_brand}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_itemName}"/>
+                    <h:outputText value="#{itemController.selected.itemName}" title="#{bundle.ViewItemTitle_itemName}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_url}"/>
+                    <h:outputText value="#{itemController.selected.url}" title="#{bundle.ViewItemTitle_url}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_serial}"/>
+                    <h:outputText value="#{itemController.selected.serial}" title="#{bundle.ViewItemTitle_serial}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_price}"/>
+                    <h:outputText value="#{itemController.selected.price}" title="#{bundle.ViewItemTitle_price}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_originalPrice}"/>
+                    <h:outputText value="#{itemController.selected.originalPrice}" title="#{bundle.ViewItemTitle_originalPrice}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_saleInfo}"/>
+                    <h:outputText value="#{itemController.selected.saleInfo}" title="#{bundle.ViewItemTitle_saleInfo}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_description}"/>
+                    <h:outputText value="#{itemController.selected.description}" title="#{bundle.ViewItemTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_details}"/>
+                    <h:outputText value="#{itemController.selected.details}" title="#{bundle.ViewItemTitle_details}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_season}"/>
+                    <h:outputText value="#{itemController.selected.season}" title="#{bundle.ViewItemTitle_season}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_reference}"/>
+                    <h:outputText value="#{itemController.selected.reference}" title="#{bundle.ViewItemTitle_reference}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_postage}"/>
+                    <h:outputText value="#{itemController.selected.postage}" title="#{bundle.ViewItemTitle_postage}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_packing}"/>
+                    <h:outputText value="#{itemController.selected.packing}" title="#{bundle.ViewItemTitle_packing}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_listed}"/>
+                    <h:outputText value="#{itemController.selected.listed}" title="#{bundle.ViewItemTitle_listed}"/>
+                    <h:outputText value="#{bundle.ViewItemLabel_isDutiable}"/>
+                    <h:outputText value="#{itemController.selected.isDutiable}" title="#{bundle.ViewItemTitle_isDutiable}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{itemController.destroyAndView}" value="#{bundle.ViewItemDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewItemEditLink}"/>
+                <br />
+                <h:commandLink action="#{itemController.prepareCreate}" value="#{bundle.ViewItemCreateLink}" />
+                <br />
+                <h:commandLink action="#{itemController.prepareList}" value="#{bundle.ViewItemShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewItemIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

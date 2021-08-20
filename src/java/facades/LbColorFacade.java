@@ -5,7 +5,7 @@
  */
 package facades;
 
-import entities.Brand;
+import entities.LbColor;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author MN1
  */
 @Stateless
-public class BrandFacade extends AbstractFacade<Brand> {
+public class LbColorFacade extends AbstractFacade<LbColor> {
 
     @PersistenceContext(unitName = "Shop_ejbPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class BrandFacade extends AbstractFacade<Brand> {
         return em;
     }
 
-    public BrandFacade() {
-        super(Brand.class);
+    public LbColorFacade() {
+        super(LbColor.class);
     }
     
 }

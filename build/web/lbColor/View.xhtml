@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewLbColorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewLbColorLabel_id}"/>
+                    <h:outputText value="#{lbColorController.selected.id}" title="#{bundle.ViewLbColorTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewLbColorLabel_colorCode}"/>
+                    <h:outputText value="#{lbColorController.selected.colorCode}" title="#{bundle.ViewLbColorTitle_colorCode}"/>
+                    <h:outputText value="#{bundle.ViewLbColorLabel_colorLabel}"/>
+                    <h:outputText value="#{lbColorController.selected.colorLabel}" title="#{bundle.ViewLbColorTitle_colorLabel}"/>
+                    <h:outputText value="#{bundle.ViewLbColorLabel_colorJ}"/>
+                    <h:outputText value="#{lbColorController.selected.colorJ}" title="#{bundle.ViewLbColorTitle_colorJ}"/>
+                    <h:outputText value="#{bundle.ViewLbColorLabel_bmColorFamily}"/>
+                    <h:outputText value="#{lbColorController.selected.bmColorFamily}" title="#{bundle.ViewLbColorTitle_bmColorFamily}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{lbColorController.destroyAndView}" value="#{bundle.ViewLbColorDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewLbColorEditLink}"/>
+                <br />
+                <h:commandLink action="#{lbColorController.prepareCreate}" value="#{bundle.ViewLbColorCreateLink}" />
+                <br />
+                <h:commandLink action="#{lbColorController.prepareList}" value="#{bundle.ViewLbColorShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewLbColorIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

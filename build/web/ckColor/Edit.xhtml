@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCkColorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCkColorLabel_colorCode}" for="colorCode" />
+                    <h:inputText id="colorCode" value="#{ckColorController.selected.colorCode}" title="#{bundle.EditCkColorTitle_colorCode}" required="true" requiredMessage="#{bundle.EditCkColorRequiredMessage_colorCode}"/>
+                    <h:outputLabel value="#{bundle.EditCkColorLabel_colorName}" for="colorName" />
+                    <h:inputText id="colorName" value="#{ckColorController.selected.colorName}" title="#{bundle.EditCkColorTitle_colorName}" />
+                    <h:outputLabel value="#{bundle.EditCkColorLabel_colorJ}" for="colorJ" />
+                    <h:inputText id="colorJ" value="#{ckColorController.selected.colorJ}" title="#{bundle.EditCkColorTitle_colorJ}" />
+                    <h:outputLabel value="#{bundle.EditCkColorLabel_bmColorFamily}" for="bmColorFamily" />
+                    <!--<h:inputText id="bmColorFamily" value="#{ckColorController.selected.bmColorFamily}" title="#{bundle.EditCkColorTitle_bmColorFamily}" />-->
+                    <h:selectOneMenu id="bmColorFamily" value="#{ckColorController.selected.bmColorFamily.id}" title="#{bundle.EditCkColorTitle_bmColorFamily}" >
+                        <f:selectItems value="#{bmColorController.selectBmColorFamilies}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{ckColorController.update}" value="#{bundle.EditCkColorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCkColorViewLink}"/>
+                <br />
+                <h:commandLink action="#{ckColorController.prepareList}" value="#{bundle.EditCkColorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCkColorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

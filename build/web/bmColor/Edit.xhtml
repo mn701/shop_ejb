@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditBmColorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditBmColorLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{bmColorController.selected.id}" title="#{bundle.EditBmColorTitle_id}" required="true" requiredMessage="#{bundle.EditBmColorRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditBmColorLabel_colorFamilyName}" for="colorFamilyName" />
+                    <h:inputText id="colorFamilyName" value="#{bmColorController.selected.colorFamilyName}" title="#{bundle.EditBmColorTitle_colorFamilyName}" />
+                </h:panelGrid>
+                <h:commandLink action="#{bmColorController.update}" value="#{bundle.EditBmColorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditBmColorViewLink}"/>
+                <br />
+                <h:commandLink action="#{bmColorController.prepareList}" value="#{bundle.EditBmColorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditBmColorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

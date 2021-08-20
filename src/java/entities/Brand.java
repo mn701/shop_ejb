@@ -41,24 +41,18 @@ public class Brand implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    
     @Column(name = "brand")
     private String brand;
-    
     @Column(name = "country")
     private String country;
     @Lob
-   
     @Column(name = "description")
     private String description;
-   
     @Column(name = "official_site")
     private String officialSite;
-    
     @Column(name = "buyma_link")
     private String buymaLink;
     @Lob
-    
     @Column(name = "introduction")
     private String introduction;
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditItemTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditItemLabel_itemId}" for="itemId" />
+                    <h:inputText id="itemId" value="#{itemController.selected.itemId}" title="#{bundle.EditItemTitle_itemId}" required="true" requiredMessage="#{bundle.EditItemRequiredMessage_itemId}"/>
+                    <h:outputLabel value="#{bundle.EditItemLabel_brand}" for="brand" />
+                    <h:selectOneMenu id="brand" value="#{itemController.selected.brand}" title="#{bundle.EditItemTitle_brand}" >
+                        <f:selectItems value="#{brandController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditItemLabel_itemName}" for="itemName" />
+                    <h:inputText id="itemName" value="#{itemController.selected.itemName}" title="#{bundle.EditItemTitle_itemName}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_url}" for="url" />
+                    <h:inputText id="url" value="#{itemController.selected.url}" title="#{bundle.EditItemTitle_url}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_serial}" for="serial" />
+                    <h:inputText id="serial" value="#{itemController.selected.serial}" title="#{bundle.EditItemTitle_serial}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_price}" for="price" />
+                    <h:inputText id="price" value="#{itemController.selected.price}" title="#{bundle.EditItemTitle_price}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_originalPrice}" for="originalPrice" />
+                    <h:inputText id="originalPrice" value="#{itemController.selected.originalPrice}" title="#{bundle.EditItemTitle_originalPrice}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_saleInfo}" for="saleInfo" />
+                    <h:inputText id="saleInfo" value="#{itemController.selected.saleInfo}" title="#{bundle.EditItemTitle_saleInfo}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{itemController.selected.description}" title="#{bundle.EditItemTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_details}" for="details" />
+                    <h:inputTextarea rows="4" cols="30" id="details" value="#{itemController.selected.details}" title="#{bundle.EditItemTitle_details}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_season}" for="season" />
+                    <h:inputText id="season" value="#{itemController.selected.season}" title="#{bundle.EditItemTitle_season}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_reference}" for="reference" />
+                    <h:inputTextarea rows="4" cols="30" id="reference" value="#{itemController.selected.reference}" title="#{bundle.EditItemTitle_reference}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_postage}" for="postage" />
+                    <h:inputText id="postage" value="#{itemController.selected.postage}" title="#{bundle.EditItemTitle_postage}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_packing}" for="packing" />
+                    <h:inputText id="packing" value="#{itemController.selected.packing}" title="#{bundle.EditItemTitle_packing}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_listed}" for="listed" />
+                    <h:inputText id="listed" value="#{itemController.selected.listed}" title="#{bundle.EditItemTitle_listed}" />
+                    <h:outputLabel value="#{bundle.EditItemLabel_isDutiable}" for="isDutiable" />
+                    <h:inputText id="isDutiable" value="#{itemController.selected.isDutiable}" title="#{bundle.EditItemTitle_isDutiable}" />
+                </h:panelGrid>
+                <h:commandLink action="#{itemController.update}" value="#{bundle.EditItemSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditItemViewLink}"/>
+                <br />
+                <h:commandLink action="#{itemController.prepareList}" value="#{bundle.EditItemShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditItemIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
